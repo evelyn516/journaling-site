@@ -8,12 +8,10 @@ font-family: 'Inspiration', cursive; */
 body{
     font-family: 'Bebas Neue', cursive;
     background-color: beige;
-    margin: 10px;
+    margin: 0;
+    padding: 0;
 }
 
-h1{
-    font-size: 7rem;
-}
 
 h2{
     color: pink;
