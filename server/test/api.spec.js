@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { application } = require('express');
+const express = require('express');
 const request = require('supertest');
 // import server
 const app = require('../app');
