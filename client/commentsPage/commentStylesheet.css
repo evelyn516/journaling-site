@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hubballi&family=Inspiration&display=swap');
+/* font-family: 'Bebas Neue', cursive;
+font-family: 'Hubballi', cursive;
+font-family: 'Inspiration', cursive; */
+
+body{
+    font-family: 'Bebas Neue', cursive;
+    background-color: beige;
+}
