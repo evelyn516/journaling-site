@@ -6,4 +6,30 @@ font-family: 'Inspiration', cursive; */
 body{
     font-family: 'Bebas Neue', cursive;
     background-color: beige;
+    margin: 20px;
+}
+
+h1{
+    font-size: 10vw;
+}
+h2{
+    font-family: 'Hubballi', cursive;
+}
+
+header{
+    background-color: purple;
+    color: yellow;
+    padding: 2pt;
+    text-align: center;
+/*     border: 20pt;
+    border-color: pink; */
+}
+
+.rubberduckieheader{
+    width: 10%;
+    float: inline-end;
+}
+
+main{
+    padding: 20px;
 }
