@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hubballi&family=Inspiration&display=swap');
+/* font-family: 'Bebas Neue', cursive;
+font-family: 'Hubballi', cursive;
+font-family: 'Inspiration', cursive; */
+
+body{
+    font-family: 'Bebas Neue', cursive;
+    background-color: beige;
+}
+
+nav{
+    
+}
+
+header{
+    background-color: purple;
+    color: yellow;
+    padding: 20px;
+    font-size: 200%;
+    text-align: center;
+/*     border: 20pt;
+    border-color: pink; */
+}
+
+.rubberduckieheader{
+    width: 10%;
+    float: right;
+    
+}
+
+.post{
+
+}
+
+.postTitle{}
+.theStory{}
+.gifInsert{}
+.comment{
+    
+}
+
+
+footer{
+    background-color: grey;
+}
