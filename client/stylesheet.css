@@ -8,9 +8,17 @@ font-family: 'Inspiration', cursive; */
 body{
     font-family: 'Bebas Neue', cursive;
     background-color: beige;
-    margin: 0;
-    padding: 0;
+    margin: 10px;
 }
+
+h1{
+    font-size: 7rem;
+}
+
+h2{
+    color: pink;
+}
+
 
 .navbar {
     display: flex;
