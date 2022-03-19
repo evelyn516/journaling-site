@@ -18,7 +18,7 @@ h2{
 }
 
 
-.navbar {
+#navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,22 +26,22 @@ h2{
     color: purple;
 }
 
-.brand-title {
+#brand-title {
     font-size: 2rem;
     margin: 0.5rem;
 }
 
-.navbar-links ul {
+#navbar-links ul {
     margin: 0;
     padding: 0;
     display: flex;
 }
 
-.navbar-links li {
+#navbar-links li {
     list-style: none;
 }
 
-.navbar-links li a {
+#navbar-links li a {
     text-decoration: none;
     color: purple;
     padding: 1rem;
@@ -50,10 +50,10 @@ h2{
     font-size: 1.2rem;
 }
 
-.navbar-links li:hover {
+#navbar-links li:hover {
     background-color: pink;
 }
-.toggle-button {
+#toggle-button {
     position: absolute;
     top: 0.75rem;
     right: 1rem;
@@ -64,7 +64,7 @@ h2{
     height: 21px;
 }
 
-.toggle-button .bar {
+#toggle-button .bar {
     height: 3px;
     width: 100%;
     background-color: purple;
@@ -72,34 +72,34 @@ h2{
 }
 
 @media only screen and (max-width: 560px) {
-    .toggle-button {
+    #toggle-button {
         display: flex;
     }
 
-    .navbar-links {
+    #navbar-links {
         display: none;
         width: 100%;
     }
 
-    .navbar {
+    #navbar {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .navbar-links ul {
+    #navbar-links ul {
         flex-direction: column;
         width: 100%;
     }
 
-    .navbar-links li {
+    #navbar-links li {
         text-align: center;
     }
 
-    .navbar-links li a {
+    #navbar-links li a {
         padding: 0.5rem 1rem;
     }
 
-    .navbar-links.active {
+    #navbar-links.active {
         display: flex;
     }
 }
@@ -118,6 +118,10 @@ header{
     width: 10%;
     float: right;
     
+}
+/* submit btn color */
+body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
+    background-color: palevioletred;
 }
 
 .post{
