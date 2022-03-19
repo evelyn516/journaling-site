@@ -125,6 +125,7 @@ body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
 }
 
 .post{
+}
 
 .postTitle{
     grid-area: title;
@@ -139,9 +140,21 @@ body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
     grid-area: gif;
     width: 14vh;
     margin: 10px;
+
+
 /*  flex inline? seems to be pushing comments down */
 /* needs to be stuck on the right - position fixed? */
 }
+
+
+/* code below doesnt work */
+.card-img-top {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+
 .comment{
     grid-area: comment;
     padding-left: 10px;
@@ -150,7 +163,7 @@ body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
 .entertitle{
     grid-area: titleEntry;
 }
-.s/button{
+.s-button{
     grid-area: submitbutton;
 }
 .gifUrl{
