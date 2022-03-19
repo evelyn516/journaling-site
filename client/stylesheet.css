@@ -126,13 +126,66 @@ body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
 
 .post{
 
+.postTitle{
+    grid-area: title;
+    padding-left: 10px;
+    text-decoration: underline;
+}
+.theStory{
+    grid-area: story;
+    padding-top: 10px;
+}
+.gifInsert{
+    grid-area: gif;
+    width: 14vh;
+    margin: 10px;
+/*  flex inline? seems to be pushing comments down */
+/* needs to be stuck on the right - position fixed? */
+}
+.comment{
+    grid-area: comment;
+    padding-left: 10px;
+    /* want this to be wider but not pushed down */
+}
+.entertitle{
+    grid-area: titleEntry;
+}
+.s/button{
+    grid-area: submitbutton;
+}
+.gifUrl{
+    grid-area: gifEntry;
+    /* needs to be entered in HTML */
+}
+.enterStory{
+    grid-area: storyEntry;
+    margin-top: 10px;
+    width: 80vw;
+}
+#addStory{
+    grid-area: addStory;
+}
+#title{
+    width: 40vw;
+}
+.newEntry{
+    display: grid;
+    grid-template-areas: 
+        "addStory addStory addStory"
+        "titleEntry titleEntry gifEntry"
+        "storyEntry storyEntry submitbutton";
+    margin: 10px;
+    padding: 10px;
 }
 
-.postTitle{}
-.theStory{}
-.gifInsert{}
-.comment{
-    
+.apost{
+    display: grid;
+    grid-template-areas: 
+        "title title  title"
+        "story story gif"
+        "comment comment comment";
+    margin: 10px;
+    padding: 10px;
 }
 
 
