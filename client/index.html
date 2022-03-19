@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyRandomStory</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet.css">
     <script defer src="script.js"></script>
     <link rel="shortcut icon" type="image/png" href="./images/rubberduck.png">
@@ -28,27 +29,32 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </div>
+
     </nav>
 
 
 
     <header>
         <h1>My Random Story</h1>
-        <h2>Post your randomest stories on the internet so you don't bore your friends and therapist.</h2>
+        <h3>Post your stories on the internet so you don't bore your friends and therapist.</h3>
     </header>
     
     
-    <section>
-        <h3>Add your story below!</h3>
+    <section class="newEntry">
+        <h3 id="addStory">Add your story below!</h3>
         <form action="">
-            <input type="text" placeholder="What is the title of your story?" maxlength="400">
-            <textarea name="newStory" id="newentry" rows="5" cols="100" maxlength="400" placeholder="What happened...?"></textarea>
+            <div class="enterTitle">
+                <input id="title" type="text" placeholder="What is the title of your story?" maxlength="400">
+            </div>
+            <div>
+                <textarea class="enterStory" name="newStory" id="newentry" rows="5" cols="120"  maxlength="400" placeholder="What happened...?"></textarea>
+            </div>
             <button class='s/button' type="submit">Submit!</button>
         </form>
     </section>
 
     <main>
-        <div>
+        <div class="apost">
             <h4 class="postTitle">Blog Post Title</h4>
             <!-- By thatsucks  - 28/02/2009 11:10 - United Kingdom -->
             <p class="theStory">The rest of the story goes here...</p>
@@ -59,22 +65,25 @@
                 <input type="text" id="form-search" placeholder="Add your comment here">
             </form>
         </div>
-        <div>
-            <h4>My Random Squirrel Story</h4>
-            <p>I left my window open while I was working, when I turned around a squirrel was helping himself to my lunch.</p>
+
+        <div class="apost">
+            <h4 class="postTitle">My Random Dad Story</h4>
+            <img class="gifInsert" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqKBpp4ydpX2-nrgi-DFEnxHDThnD6HfkSNQ&usqp=CAU" alt="a rubber duck" alt="gify">
+            <p class="theStory">Today, I told my dad I wasn’t feeling well, to which his response was to interrupt me and say, “Nope. Not buying it.” I have never faked an illness in my life, and this time I vomited in front of my entire class. FML.</p>
             <form class="comment">
                 <label for = "comments">
                 </label>
-                <input type="text" id="form-search" placeholder="Add your comment here">
+                <input class="comment" type="text" id="form-search" placeholder="Add your comment here">
             </form>
         </div>
-        <div>
-            <h4>My Random Greek Story</h4>
-            <p>Once a group of old men bought my lunch for me in a taverna because they felt sorry for me sitting alone. I went to say thankyou and ended up sitting and having drinks with them. I ended up getting trashed with a group of orthodox priests.</p>
+        <div class="apost">
+            <h4 class="postTitle">My Random Greek Story</h4>
+            <img class="gifInsert" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqKBpp4ydpX2-nrgi-DFEnxHDThnD6HfkSNQ&usqp=CAU" alt="a rubber duck" alt="gify">
+            <p class="theStory">Once a group of old men bought my lunch for me in a taverna because they felt sorry for me sitting alone. I went to say thankyou and ended up sitting and having drinks with them. I ended up getting trashed with a group of orthodox priests.</p>
             <form class="comment">
                 <label for = "comments">
                 </label>
-                <input type="text" id="form-search" placeholder="Add your comment here">
+                <input class="comment" type="text" id="form-search" placeholder="Add your comment here">
             </form>
         </div>
     </main>
