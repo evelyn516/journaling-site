@@ -1,6 +1,9 @@
 const app = require('./app');
 const port = process.env.port || 3000;
+const Datastore = require('nedb');
 
+const database = new Datastore('database.db');
+database.loadDatabase();
 
 const fs = require('fs');
 const { request } = require('http');
@@ -13,17 +16,19 @@ app.get('/data', (req, res) => {
   })
 
 
-app.post('/data', (req, res) => {
+
+app.post('/data/new', (req, res) => {
     const newPost = req.body;
-/*     let newPost = {
-        id: Date.now(),
-        title: document.getElementById('story-title'),
-        story: document.getElementById('story-entry'),
-        comments: []
-    } */
-    allposts.push({newPost});
-    res.send({message: `${newPost.title} successfully added to our collection.`})
-})
+    console.log('NEW POST TO RANDOM STORIES');
+    console.log(newPost);
+    database.insert(newPost);
+    res.json({
+        status: "success",
+        timestamp: newPost.timestamp,
+        title: newPost.title,
+        story: newPost.story
+    });
+});
 /* fs.writeFile('datafiles.json', data, (err) => {
     if (err) {
         throw err;
