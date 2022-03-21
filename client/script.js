@@ -75,3 +75,6 @@ function saveNewPost(e) {
 // need a function that sorts all the posts by descending order of most recent date - can choose most commented or most emoji-ed sort?
 //function for count emoji reactions - add to HTML
 
+
+module.exports = { charCount };
+
