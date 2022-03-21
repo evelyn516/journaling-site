@@ -51,7 +51,8 @@ giffyBtn.addEventListener('click', (e) => {
 
 });
 const submitButton = document.getElementById('s/button')
-submitButton.addEventListener('click', addStory)
+/* submitButton.addEventListener('click', addStory) */
+submitButton.addEventListener('click', saveNewPost)
 
 function addStory(e){
     e.preventDefault(); // stops form submitting
@@ -82,27 +83,32 @@ function addStory(e){
 
 //FOR EACH STORY IN JSON - addDivStory
 
-/* function saveNewPost(e) {
+function saveNewPost(e) {
     e.preventDefault(); // stops form submitting
+    
     let newPost = {
-        id: Date.now(),
-        title: document.getElementById('story-title'),
-        story: document.getElementById('story-entry'),
+        timestamp: Date.now(),
+        title: document.getElementById('story-title').value,
+        story: document.getElementById('story-entry').value,
         comments: []
     }
-    fetch('http://localhost:3000/data' {
-    method: 'post',
-    body: newPost})
+    
+    fetch('http://localhost:3000/data/new', {
+        method: 'POST', 
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(newPost)})
     .then(resp => resp.text())
     .then(text => console.log(text))
     .catch(error => console.error(error));
-    /* entries.push(newPost); // need to use link to JSON 
+
     
     document.querySelector('form').reset(); //to clear form for new entries
 
     //for display purposes only
-    console.warn('added a new post'); */
-
+    console.warn('added a new post');
+}
 
 
 //function for timestamp
