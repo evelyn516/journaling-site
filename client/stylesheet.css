@@ -205,3 +205,20 @@ body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
 footer{
     background-color: grey;
 }
+
+
+/* Giphy Style */
+.outer-form > .gifSearchForm > .gif-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 90%;
+	margin: 10px auto;
+	max-width: 600px;
+}
+
+#outer-form > .gifSearchForm > .gif-list > img {
+	width: auto;
+	height: 125px;
+	margin: 5px;
+}
