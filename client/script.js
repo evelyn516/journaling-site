@@ -21,7 +21,7 @@ function charCount(e){
 const submitButton = document.getElementById('s/button')
 submitButton.addEventListener('click', addStory)
 
-function addStory(e){
+function addDivStory(e){
     const title = document.getElementById('story-title');
     const story = document.getElementById('story-entry');
     console.log(title.value);
@@ -42,8 +42,8 @@ function addStory(e){
     newdiv.appendChild(newstory);
 }
 
+//FOR EACH STORY IN JSON - addDivStory
 
-let entries = [] // need to use link to JSON
 function saveNewPost(e) {
     e.preventDefault(); // stops form submitting
     let newPost = {
@@ -65,8 +65,6 @@ function saveNewPost(e) {
     //for display purposes only
     console.warn('added a new post');
 }
-
-
 
 
 //function for timestamp
