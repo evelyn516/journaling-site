@@ -7,7 +7,7 @@ app.use(cors());
 
 
 app.get('/', (req, res) => {
-    res.send(`Welcome to our server!`)
+    res.send(`Welcome to our server! - From Nowshad, Sami and Evie`)
 });
 
 
