@@ -6,23 +6,35 @@ const fs = require('fs');
 const { request } = require('http');
 let posts = fs.readFileSync('datafiles.json');
 let allposts = JSON.parse(posts);
-//add date and time
-console.log(allposts.title);
-console.log(allposts.story);
 
-function addPost() {
-/*     let title = fetch/request.params
-    let story = fetch/request.params */
-    //title = JSON.stringify('title')
-    fs.writeFile('datafiles.json', title, postNow)
-    function postNow() {
-        console.log('hello')
-    }
-}
 
 app.get('/data', (req, res) => {
     res.json(allposts)
   })
+
+
+app.post('/data', (req, res) => {
+    const newPost = req.body;
+/*     let newPost = {
+        id: Date.now(),
+        title: document.getElementById('story-title'),
+        story: document.getElementById('story-entry'),
+        comments: []
+    } */
+    allposts.push({newPost});
+    res.send({message: `${newPost.title} successfully added to our collection.`})
+})
+/* fs.writeFile('datafiles.json', data, (err) => {
+    if (err) {
+        throw err;
+    }
+    console.log("JSON data is saved.");
+}); */
+
+
+
+
+
 
 
 
