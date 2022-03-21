@@ -44,23 +44,24 @@
 
         <div class="container my-2">
 
-            <form action="" class="padding">
+            <form id="outer-form" action="" class="padding">
                 <h3>Add your story!</h3>
                 <div class="padding-top">
                     <label for="story-title" >Story Title:</label>
-                    <input type="text" id="story-title" class="form-control" placeholder="Enter the title here..." required>
+                    <input type="text" id="story-title" class="form-control" placeholder="Enter the title here...">
                 </div>
         
                 <div class="padding-top">
                     <label for="story-entry" >Story:</label>
-                    <textarea id ="story-entry" name="" cols="30" rows="5" class="form-control" required maxlength="300" placeholder="Tell us what happened here..."></textarea>
+                    <textarea id ="story-entry" name="" cols="30" rows="5" class="form-control"maxlength="300" placeholder="Tell us what happened here..."></textarea>
                     <div>
                         <span id="current">0</span>
                         <span>/ 300</span>
                     </div>
                     <div id="charNum"></div>
                 </div>
-        
+                <span id="one-gif"></span>
+                <span id="gifImg"></span>
                 <div class="padding-top"> 
                     <label for="gif-search">How do you feel?</label>
                     <input type="text" name="" id="gif-search">
@@ -105,6 +106,18 @@
                 <label for = "comments">
                 </label>
                 <input class="comment" type="text" id="form-search" placeholder="Add your comment here">
+            </form>
+        </div>
+
+        <div class="apost">
+            <h4 class="postTitle">Lucky Landing</h4>
+            <!-- By reek  - 21/03/2022 13:07 - Pakistan -->
+            <img class="gifInsert" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqKBpp4ydpX2-nrgi-DFEnxHDThnD6HfkSNQ&usqp=CAU" alt="a rubber duck" alt="gify">
+            <p class="theStory">When I was 9 I rode down a hill and crashed into a tree but of getting hurt I rolled up the tree trunk and flew across the pavement and landed safely.</p>
+            <form class="comment">
+                <label for = "comments">
+                </label>
+                <input type="text" id="form-search" placeholder="Add your comment here">
             </form>
         </div>
     </main>
