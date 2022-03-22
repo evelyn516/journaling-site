@@ -40,3 +40,46 @@ fs.writeFile('user.json', data, (err) => {
     }
     console.log("JSON data is saved.");
 });
+
+
+/* app.get('/data/new', (req, res) => {
+    let db = fs.readFileSync('database.db');
+    let helpdb = JSON.parse(db);
+    res.json(helpdb);
+  }) */
+
+
+  
+//NO LONGER WORKING
+app.post('/data/new', (req, res) => {
+    const newPost = req.body;
+    console.log('NEW POST TO RANDOM STORIES');
+    console.log(newPost);
+    database.insert(newPost);
+    res.json({
+        status: "success",
+        timestamp: newPost.timestamp,
+        title: newPost.title,
+        story: newPost.story
+    });
+});
+/* fs.writeFile('datafiles.json', data, (err) => {
+    if (err) {
+        throw err;
+    }
+    console.log("JSON data is saved.");
+}); */
+
+//const Datastore = require('nedb');
+
+//const database = new Datastore('database.db');
+//database.loadDatabase();
+
+
+/* 
+app.get('/data', (req, res) => {
+    let posts = fs.readFileSync('datafiles.json');
+    let allposts = JSON.parse(posts);
+    res.json(allposts)
+  })
+ */

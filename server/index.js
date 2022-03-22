@@ -1,43 +1,40 @@
-const app = require('./app');
+const express = require('express');
+const app = express();
+const cors = require('cors');
+
+app.use(express.json());
+app.use(cors());
+
 const port = process.env.port || 3000;
-const Datastore = require('nedb');
-
-const database = new Datastore('database.db');
-database.loadDatabase();
-
 const fs = require('fs');
 const { request } = require('http');
-let posts = fs.readFileSync('datafiles.json');
-let allposts = JSON.parse(posts);
-
-
-app.get('/data', (req, res) => {
-    res.json(allposts)
-  })
 
 
 
-app.post('/data/new', (req, res) => {
-    const newPost = req.body;
-    console.log('NEW POST TO RANDOM STORIES');
-    console.log(newPost);
-    database.insert(newPost);
-    res.json({
-        status: "success",
-        timestamp: newPost.timestamp,
-        title: newPost.title,
-        story: newPost.story
-    });
+app.get('/', (req, res) => {
+    res.send(`Welcome to our server! - From Nowshad, Sami and Evie`)
 });
-/* fs.writeFile('datafiles.json', data, (err) => {
-    if (err) {
-        throw err;
-    }
-    console.log("JSON data is saved.");
-}); */
 
 
 
+
+const storyData = require('./input.json');
+
+app.get('/entries', (req, res) => {
+    res.json(storyData)
+})
+
+app.post('/entries', (req,res) => {
+    storyData.push(req.body)
+    console.log(storyData)
+
+    fs.writeFile("input.json", JSON.stringify(storyData, null, 2), function(err) {
+        if (err) throw err;
+        console.log('completed!');
+        }
+    )
+    res.json({success: true})
+})
 
 
 
