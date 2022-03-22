@@ -132,6 +132,11 @@ body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
     /* padding-left: 10px; */
     text-decoration: underline;
 }
+.timestamp{
+    grid-area: date;
+    color:blue;
+    text-align: left;
+}
 .theStory{
     grid-area: story;
     padding-top: 10px;
@@ -173,7 +178,7 @@ body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
     grid-area: gifEntry;
     /* needs to be entered in HTML */
 }
-.enterStory{
+/* .enterStory{
     grid-area: storyEntry;
     margin-top: 10px;
     width: 80vw;
@@ -183,16 +188,17 @@ body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
 }
 #title{
     width: 40vw;
-}
-.newEntry{
+} */
+/* .newEntry{
     display: grid;
     grid-template-areas: 
         "addStory addStory addStory"
+        "date date date"
         "titleEntry titleEntry gifEntry"
         "storyEntry storyEntry submitbutton";
     margin: 10px;
     padding: 10px;
-}
+} */
 
 .apost{
     display: grid;

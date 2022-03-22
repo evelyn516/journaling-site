@@ -1,5 +1,3 @@
-/* const { response } = require("../server/app"); */
-
 // navbar javascript
 const toggleButton = document.getElementById('toggle-button')
 const navbarLinks = document.getElementById('navbar-links')
@@ -20,7 +18,6 @@ function charCount(e){
 
 // Giphy search
 let APIKey = 'ct8cd1r1ee3fUNlCSMP9VKWNg0e13CwG';
-
 const giffyBtn = document.getElementById('find-gif');
 const giffyText = document.getElementById('gif-search');
 
@@ -57,6 +54,8 @@ formEl.addEventListener('submit', postStoryData)
 async function postStoryData(e) {
   e.preventDefault();
   const current = new Date().toLocaleString();
+  
+  
   let gifUrl;
     let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKey}&limit=10&q=`;
     let str = giffyText.value.trim();
@@ -66,29 +65,33 @@ async function postStoryData(e) {
     .then(content => {
         gifUrl = content.data[0].images.fixed_height.url
     })
+
     
-  const formData = new FormData(formEl)
-  const formDataSerialised = Object.fromEntries(formData)
-  const jsonObject = {...formDataSerialised, dateTime: current, comments: "", gifSearch: gifUrl, emojiCount: [0,0,0]}
-  console.log(jsonObject)
-  try{
-    const response = await fetch ("http://localhost:3000/test", {
-      method: 'POST', 
-      body: JSON.stringify(jsonObject),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    const json = await response.json();
-    console.log(json)
-  }catch(e){
-    console.error(e);
-    alert('There was an error')
-  }
+    const formData = new FormData(formEl)
+    const formDataSerialised = Object.fromEntries(formData)
+    const jsonObject = {...formDataSerialised, dateTime: current, comments: "", gifSearch: gifUrl, emojiCount: [0,0,0]}
+    console.log(jsonObject)
+    try{
+        const response = await fetch ("http://localhost:3000/entries", {
+        method: 'POST', 
+        body: JSON.stringify(jsonObject),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+        })
+        const json = await response.json();
+        console.log(json)
+    }catch(e){
+        console.error(e);
+        alert('There was an error')
+    }
 }
+ 
+
+
 
 // fetching data from backend
-fetch('http://localhost:3000/print')
+fetch('http://localhost:3000/entries')
 .then(resp => resp.json())
 .then(resp => {
     console.log(resp)
