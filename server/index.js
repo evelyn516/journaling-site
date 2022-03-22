@@ -1,15 +1,29 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const fs = require('fs');
-const port = 3000;
 
 app.use(express.json());
 app.use(cors());
 
+const port = process.env.port || 3000;
+const fs = require('fs');
+const { request } = require('http');
+
+
+
+app.get('/', (req, res) => {
+    res.send(`Welcome to our server! - From Nowshad, Sami and Evie`)
+});
+
+
+
 const storyData = require('./input.json');
 
-app.post('/test', (req,res) => {
+app.get('/entries', (req, res) => {
+    res.json(storyData)
+})
+
+app.post('/entries', (req,res) => {
     storyData.push(req.body)
     console.log(storyData)
 
@@ -21,10 +35,12 @@ app.post('/test', (req,res) => {
     res.json({success: true})
 })
 
-app.get('/print', (req, res) => {
-    res.json(storyData)
-})
+
+
+
+
 
 app.listen(port, () => {
-    console.log(`App is listening on port ${port}!`)
+    console.log(`App is listening on port ${port}!`);
 });
+
