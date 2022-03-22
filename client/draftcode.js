@@ -1,3 +1,139 @@
+  
+
+const url = "http://localhost:3000/entries"
+fetch(url)
+.then(resp => resp.json())
+.then(data => {
+    for (let i=0; i < data.length; i++) displayStory(data[i]);
+})
+.then(console.log("done"))
+.catch(err => console.warn('Woops-a-daisy!', err)); 
+
+
+
+
+class aStoryEntry {
+    
+    constructor(title, story, gifURL) {
+        this.dateTime = new Date().toLocaleString();
+        //this.id = entries.length +1; - in backend
+        this.title = title;
+        this.story = story;
+        this.emoji = {likes:0, hates:0, loves:0};
+        this.gif = gifURL;
+    }
+
+    displayStory(){
+        
+        console.log('MAKING A CLASS')
+        
+        const newtitle = document.createElement('h4');
+        newtitle.className = "postTitle";
+        newtitle.textContent = this.title;
+        
+        const newstory = document.createElement('p');
+        newstory.className = "theStory";
+        newstory.textContent = this.story;
+        
+        const newDateTime = document.createElement('p');
+        newDateTime.className = "timestamp";
+        newDateTime.textContent = this.dateTime;
+    
+        const emojibuttons = document.createElement('div')
+        
+        const like = document.createElement('button')
+        like.className = 'like';
+        like.innerHTML = `&#128077 ${this.emoji[likes]}`
+        emojibuttons.appendChild(like);
+        
+        const hate = document.createElement('button')
+        hate.className = 'hate';
+        hate.innerHTML = `&#10084 ${this.emoji[hates]}`
+        emojibuttons.appendChild(hate);
+    
+        const love = document.createElement('button')
+        love.className = "love";
+        love.innerHTML = `&#10084 ${this.emoji[loves]}`
+        emojibuttons.appendChild(love);
+        
+    
+        const newdiv = document.createElement('div')
+        const main = document.querySelector('main')
+        newdiv.className = "apost";
+        main.prepend(newdiv);
+        newdiv.appendChild(newtitle);
+        newdiv.appendChild(newDateTime);
+        newdiv.appendChild(newstory);
+        newdiv.appendChild(emojibuttons);  
+    }
+
+    saveNewPost(e) {
+        e.preventDefault(); // stops form submitting
+    
+        let newPost = {
+            //id: entries.length + 1ok
+            timestamp: new Date().toLocaleString(),
+            title: document.getElementById('story-title').value,
+            story: document.getElementById('story-entry').value,
+            likes: 0,
+            hates: 0,
+            loves: 0,
+            comments: [],
+           // gif: gifUrl
+        }
+        
+        fetch('http://localhost:3000/entries', {
+            method: 'POST', 
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(newPost)})
+        .then(resp => resp.text())
+        .then(text => console.log(text)) //can coment this linne out later
+        .catch(error => console.error(error));
+    
+        
+        document.querySelector('form').reset(); //to clear form for new entries
+    
+        //for display purposes only
+        console.warn('added a new post');
+    }
+
+};
+
+
+class Tamagotchi extends Pet {
+    speak(){ console.log(`POWowK`); };
+} 
+
+
+let Gary = new Tamagotchi("Gary", 6)
+
+console.log(Gary.name, Gary.happiness, Gary.hunger)
+Gary.feed('banana');
+Gary.playWith();
+Gary.check();
+Gary.speak();
+console.log(Gary instanceof Pet);
+console.log(Gary instanceof Tamagotchi);
+
+
+
+server.post('/entries', (req, res) => {
+    const newCat = req.body;
+    const newCatId = entries.length + 1 //not def?
+    cats.push({ id: newCatId, ...newCat});
+    res.send({message: `${newCat.name} successfully added to our collection.`})
+})
+
+
+
+
+
+
+
+
+/////////////////////////
 // navbar javascript
 const toggleButton = document.getElementById('toggle-button')
 const navbarLinks = document.getElementById('navbar-links')
@@ -195,6 +331,7 @@ function saveNewPost(e) {
     //for display purposes only
     console.warn('added a new post');
 }
+
 
 
 
