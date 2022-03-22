@@ -57,13 +57,14 @@ async function postStoryData(e) {
   
   
   let gifUrl;
-    let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKey}&limit=10&q=`;
+    let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKey}&q=`;
     let str = giffyText.value.trim();
     url = url.concat(str)
     await fetch(url)
     .then(response => response.json())
     .then(content => {
-        gifUrl = content.data[0].images.fixed_height.url
+        const idx = Math.floor(Math.random()*content.data.length)
+        gifUrl = content.data[idx].images.fixed_height.url
     })
 
     
