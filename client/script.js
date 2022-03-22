@@ -8,12 +8,13 @@ toggleButton.addEventListener('click', () => {
 
 // character count 
 const characterCount = document.querySelector('#storyEntry');
-characterCount.addEventListener('keyup', charCount)
-function charCount(e){
-    if(e.key){
-        document.querySelector('#current').textContent=document.querySelector('#storyEntry').value.length
+const currentCount = document.getElementById('currentCount');
+
+characterCount.addEventListener('keyup', (e) => {
+    if (e.key) {
+        currentCount.textContent = characterCount.value.length
     }
-}
+})
 
 
 // Giphy search
@@ -117,13 +118,13 @@ function createStory(resp) {
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <button class="btn btn-success" style="width:100%">&#128077; ${item.emojiCount[0]}</button>
+                <button class="btn btn-success" style="width:100%" onclick="counterIncrease('${item.storyTitle}', 'like')">&#128077; ${item.emojiCount[0]}</button>
             </div>
             <div class="col text-center">
-            <button class="btn btn-danger" style="width:100%">&#128078; ${item.emojiCount[1]}</button>
+            <button class="btn btn-danger" style="width:100%" onclick="counterIncrease('${item.storyTitle}', 'dislike')">&#128078; ${item.emojiCount[1]}</button>
             </div>
             <div class="col text-center">
-            <button class="btn btn-primary" style="width:100%">&#10084; ${item.emojiCount[2]}</button>
+            <button class="btn btn-primary" style="width:100%" onclick="counterIncrease('${item.storyTitle}', 'love')">&#10084; ${item.emojiCount[2]}</button>
             </div>
         </div>
         <form class="comment my-2">
@@ -135,3 +136,17 @@ function createStory(resp) {
 list.prepend(li)
     })
 }
+
+// const emojiBtn = document.getElementsByClassName('emojiBtn')
+
+// emojiBtn.addEventListener('click', counterIncrease);
+
+function counterIncrease(storytitle,emoji){
+    // console.log('got' + journaltitle + emoji)
+    fetch('http://localhost:3000/emojiUpdate', {
+      method: 'PUT',
+      body: JSON.stringify({ title: storytitle, emoji: emoji }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+    location.reload();
+};

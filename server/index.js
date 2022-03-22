@@ -35,6 +35,22 @@ app.post('/entries', (req,res) => {
     res.json({success: true})
 })
 
+app.put('/emojiUpdate', (req, res)=>{
+    console.log(req.body.title)
+    console.log(req.body.emoji)
+ //    console.log(formData[0])
+    const title = req.body.title;
+    const matchingPost = storyData.find(post=> post.storyTitle ===title )
+    console.log(matchingPost)
+    if (req.body.emoji === 'like'){
+         matchingPost.emojiCount[0]++
+    } else if(req.body.emoji === 'dislike'){
+         matchingPost.emojiCount[1]++
+    } else if(req.body.emoji === 'love'){
+         matchingPost.emojiCount[2]++
+    }
+ })
+
 
 
 
