@@ -17,7 +17,6 @@ app.get('/', (req, res) => {
 
 
 
-
 const storyData = require('./input.json');
 
 app.get('/entries', (req, res) => {
