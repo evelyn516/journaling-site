@@ -47,13 +47,13 @@
             <form id="outer-form" action="" class="padding">
                 <h3>Add your story!</h3>
                 <div class="padding-top">
-                    <label for="story-title" >Story Title:</label>
-                    <input name="story-title" type="text" id="story-title" class="form-control" placeholder="Enter the title here...">
+                    <label for="storyTitle" >Story Title:</label>
+                    <input name="storyTitle" type="text" id="story-title" class="form-control" placeholder="Enter the title here...">
                 </div>
         
                 <div class="padding-top">
-                    <label for="story-entry" >Story:</label>
-                    <textarea id ="story-entry" name="story-entry" cols="30" rows="5" class="form-control"maxlength="400" placeholder="Tell us what happened here..."></textarea>
+                    <label for="storyEntry" >Story:</label>
+                    <textarea id ="storyEntry" name="storyEntry" cols="30" rows="5" class="form-control"maxlength="400" placeholder="Tell us what happened here..."></textarea>
                     <div>
                         <span id="current">0</span>
                         <span>/ 400</span>
@@ -63,10 +63,10 @@
                 <span id="one-gif"></span>
                 <span id="gifImg"></span>
                 <div class="padding-top"> 
-                    <label for="gif-search">How do you feel?</label>
-                    <input type="text" name="" id="gif-search">
+                    <label for="gifSearch">How do you feel?</label>
+                    <input type="text" name="gifSearch" id="gif-search">
                     <button class="btn btn-warning mx-1" id="find-gif">Find Gif!</button>
-                    <button type="submit" id="s/button" class="btn btn-primary mx-1">Submit</button>
+                    <input type="submit" value="submit!" id="s/button" class="btn btn-primary mx-1">
                 </div>        
             </form>
 
@@ -76,6 +76,10 @@
     </section>
 
      <main>
+        <div id="story-show">
+
+        </div>
+
         <div class="apost">
             <h4 class="postTitle">Blog Post Title</h4>
             <!-- By thatsucks  - 28/02/2009 11:10 - United Kingdom -->

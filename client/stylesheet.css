@@ -129,7 +129,7 @@ body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
 
 .postTitle{
     grid-area: title;
-    padding-left: 10px;
+    /* padding-left: 10px; */
     text-decoration: underline;
 }
 .theStory{
@@ -154,6 +154,9 @@ body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
     object-fit: cover;
 }
 
+.dateTime {
+    grid-area: date;
+}
 
 .comment{
     grid-area: comment;
@@ -194,8 +197,10 @@ body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
 .apost{
     display: grid;
     grid-template-areas: 
-        "title title  title"
-        "story story gif"
+        "title title title"
+        "date date date"
+        "story story story"
+        "gif gif gif"
         "comment comment comment";
     margin: 10px;
     padding: 10px;
