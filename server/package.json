@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "build": "concurrently \"watchify ../client/script.js -o bundle.js\" \"python -m http.server\""
   },
   "keywords": [],
   "author": "",
@@ -13,7 +14,6 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.3",
-    "nedb": "^1.8.0",
     "nodemon": "^2.0.15"
   },
   "devDependencies": {
