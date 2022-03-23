@@ -9,6 +9,14 @@ const port = process.env.port || 3000;
 const fs = require('fs');
 const { request } = require('http');
 
+function updateJson() {
+    fs.writeFile("input.json", JSON.stringify(storyData, null, 2), function(err) {
+        if (err) throw err;
+        console.log('Added story data to the array!');
+        }
+    )
+};
+
 
 
 app.get('/', (req, res) => {
@@ -27,13 +35,25 @@ app.post('/entries', (req,res) => {
     storyData.push(req.body)
     console.log(storyData)
 
-    fs.writeFile("input.json", JSON.stringify(storyData, null, 2), function(err) {
-        if (err) throw err;
-        console.log('completed!');
-        }
-    )
+    updateJson();
     res.json({success: true})
 })
+
+app.put('/emojiUpdate', (req, res)=>{
+    console.log(req.body.title)
+    console.log(req.body.emoji)
+    const title = req.body.title;
+    const matchingPost = storyData.find(post=> post.storyTitle ===title )
+    console.log(matchingPost)
+    if (req.body.emoji === 'like'){
+         matchingPost.emojiCount[0]++
+    } else if(req.body.emoji === 'dislike'){
+         matchingPost.emojiCount[1]++
+    } else if(req.body.emoji === 'love'){
+         matchingPost.emojiCount[2]++
+    }
+    updateJson();
+ })
 
 
 
