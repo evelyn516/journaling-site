@@ -53,7 +53,7 @@ giffyBtn.addEventListener('click', function getGif(e) {
 
 });
 
-
+let count = 0;
 
 const formEl = document.querySelector('form');
 formEl.addEventListener('submit', postStoryData)
@@ -68,7 +68,7 @@ async function postStoryData(e) {
     
     const formData = new FormData(formEl)
     const formDataSerialised = Object.fromEntries(formData)
-    const jsonObject = {...formDataSerialised, dateTime: current, comments: "", gifSearch: gifUrl, emojiCount: [0,0,0]}
+    const jsonObject = {...formDataSerialised, id: count, dateTime: current, comments: [], gifSearch: gifUrl, emojiCount: [0,0,0]}
     console.log(jsonObject)
     try{
         const response = await fetch ("http://localhost:3000/entries", {
@@ -101,6 +101,7 @@ let list = document.querySelector('#story-show');
 function createStory(resp) {
     
     resp.forEach(item => {
+        count++
         // console.log(item)
         const li = document.createElement('li')
         li.innerHTML = `
@@ -115,13 +116,13 @@ function createStory(resp) {
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <button class="btn btn-success" style="width:100%" onclick="emojiIncrease('${item.storyTitle}', 'like')">&#128077; ${item.emojiCount[0]}</button>
+                <button class="btn btn-success" style="width:100%" onclick="emojiIncrease('${item.id}', 'like')">&#128077; ${item.emojiCount[0]}</button>
             </div>
             <div class="col text-center">
-            <button class="btn btn-danger" style="width:100%" onclick="emojiIncrease('${item.storyTitle}', 'dislike')">&#128078; ${item.emojiCount[1]}</button>
+            <button class="btn btn-danger" style="width:100%" onclick="emojiIncrease('${item.id}', 'dislike')">&#128078; ${item.emojiCount[1]}</button>
             </div>
             <div class="col text-center">
-            <button class="btn btn-primary" style="width:100%" onclick="emojiIncrease('${item.storyTitle}', 'love')">&#10084; ${item.emojiCount[2]}</button>
+            <button class="btn btn-primary" style="width:100%" onclick="emojiIncrease('${item.id}', 'love')">&#10084; ${item.emojiCount[2]}</button>
             </div>
         </div>
         <button class="btn btn-warning my-2" data-toggle="modal" data-target="#myModal">Show Comments!</button>
@@ -138,11 +139,11 @@ function createStory(resp) {
                 <div class="modal-body">
                     <p>Comments go here!</p>
                 </div>
-                <form class="comment my-2">
+                <form id="commentForm" class="comment my-2">
                     <label for = "comments">
                     </label>
-                    <input type="text" id="comment-form-search" placeholder="Add your comment here">
-                    <input type="submit" value="Add comment" class="btn btn-primary mx-1">
+                    <input id="${item.id}" type="text" class="comment-form-search" placeholder="Add your comment here">
+                    <input onclick="sendComment(${item.id})" type="button" value="Add comment" class="btn btn-primary mx-1">
                 </form>
                     <div class="modal-footer">
                         <button class="btn btn-danger" data-dismiss="modal">Hide Comments!</button>
@@ -156,22 +157,60 @@ list.prepend(li)
 }
 
 
-function emojiIncrease(storytitle,emoji){
-    // console.log('got' + journaltitle + emoji)
+function emojiIncrease(id,emoji){
+    console.log(id)
     fetch('http://localhost:3000/emojiUpdate', {
       method: 'PUT',
-      body: JSON.stringify({ title: storytitle, emoji: emoji }),
+      body: JSON.stringify({ id: id, emoji: emoji }),
       headers: { 'Content-Type': 'application/json' },
     })
     location.reload();
 };
 
 
-// Comments Modal
-// function addComment(storytitle, comment) {
+
+function sendComment(id) {
+    const textboxValue = document.getElementById(`${id}`).value
+    console.log(textboxValue);
+    // const textBoxValue= id.value
+    fetch('http://localhost:3000/comments', {
+      method: 'PUT',
+      body: JSON.stringify({ comment: textboxValue, id: id}),
+      headers: { 'Content-Type': 'application/json' },
+    })
+}
+
+
+
+
+
+
+
+// const commentForm = document.querySelector('#commentForm');
+// commentForm.addEventListener('submit', postComment);
+
+// async function postComment(e) {
+//     e.preventDefault();
+//     const curr = new Date().toLocaleString();
+//     const commentData = new FormData(commentForm);
+//     const commentFormDataSerialised = Object.fromEntries(commentData)
+
 //     fetch('http://localhost:3000/commentUpdate', {
 //         method: 'PUT',
-//         body: JSON.stringify({ title: storytitle, comment: comment }),
+//         body: JSON.stringify({ title: storytitle, comment: comment}),
+//         headers: { 'Content-Type': 'application/json'},
+//     })
+
+//     location.reload();
+// }
+
+
+// Comments Modal
+// function addComment(storytitle, comment) {
+//     let commentPost = document.querySelector('.comment-form-search').value
+//     fetch('http://localhost:3000/commentUpdate', {
+//         method: 'PUT',
+//         body: JSON.stringify({ title: storytitle, comment: commentPost }),
 //         headers: { 'Content-Type': 'application/json'},
 //     })
 //     location.reload();

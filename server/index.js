@@ -40,10 +40,10 @@ app.post('/entries', (req,res) => {
 })
 
 app.put('/emojiUpdate', (req, res)=>{
-    console.log(req.body.title)
-    console.log(req.body.emoji)
-    const title = req.body.title;
-    const matchingPost = storyData.find(post=> post.storyTitle ===title )
+    console.log(req.body)
+    // console.log(req.body.emoji)
+    const idx = req.body.id;
+    const matchingPost = storyData.find(post=> post.id.toString() === idx )
     console.log(matchingPost)
     if (req.body.emoji === 'like'){
          matchingPost.emojiCount[0]++
@@ -55,7 +55,21 @@ app.put('/emojiUpdate', (req, res)=>{
     updateJson();
  })
 
+// comment update
+//  app.put('/commentUpdate', (req, res) => {
+//      const title = req.body.title;
+//      const matchingPost = storyData.find(post => post.storyTitle === title)
+//      matchingPost.comments.push(comment)
+//  })
 
+ app.put('/comments', (req, res)=>{
+     console.log(req.body)
+    const idx =req.body.id;
+    const matchingPost = storyData.find(post=> post.id === idx)
+    console.log(matchingPost);
+    matchingPost.comments.push(req.body.comment)
+    updateJson();
+})
 
 
 
