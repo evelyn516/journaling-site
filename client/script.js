@@ -124,11 +124,32 @@ function createStory(resp) {
             <button class="btn btn-primary" style="width:100%" onclick="emojiIncrease('${item.storyTitle}', 'love')">&#10084; ${item.emojiCount[2]}</button>
             </div>
         </div>
-        <form class="comment my-2">
-            <label for = "comments">
-            </label>
-            <input type="text" id="form-search" placeholder="Add your comment here">
-        </form>
+        <button class="btn btn-warning my-2" data-toggle="modal" data-target="#myModal">Show Comments!</button>
+
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Comment Section:</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                <div class="modal-body">
+                    <p>Comments go here!</p>
+                </div>
+                <form class="comment my-2">
+                    <label for = "comments">
+                    </label>
+                    <input type="text" id="comment-form-search" placeholder="Add your comment here">
+                    <input type="submit" value="Add comment" class="btn btn-primary mx-1">
+                </form>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" data-dismiss="modal">Hide Comments!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>`
 list.prepend(li)
     })
@@ -144,3 +165,14 @@ function emojiIncrease(storytitle,emoji){
     })
     location.reload();
 };
+
+
+// Comments Modal
+// function addComment(storytitle, comment) {
+//     fetch('http://localhost:3000/commentUpdate', {
+//         method: 'PUT',
+//         body: JSON.stringify({ title: storytitle, comment: comment }),
+//         headers: { 'Content-Type': 'application/json'},
+//     })
+//     location.reload();
+// }
