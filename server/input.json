@@ -42,8 +42,8 @@
     "dateTime": "22/03/2022, 17:36:11",
     "comments": "",
     "emojiCount": [
-      0,
-      0,
+      1,
+      1,
       0
     ]
   },
@@ -105,6 +105,42 @@
       0,
       0,
       0
+    ]
+  },
+  {
+    "storyTitle": "test story",
+    "storyEntry": "please workkkk",
+    "gifSearch": "https://media3.giphy.com/media/YJ5OlVLZ2QNl6/200.gif?cid=721f8d7855586iow3d4dx6grm9uvo9e95e81mvc43om0lpda&rid=200.gif&ct=g",
+    "dateTime": "23/03/2022, 09:12:01",
+    "comments": "",
+    "emojiCount": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "storyTitle": "morning post ",
+    "storyEntry": "jwfu iewr iuefhuewhuf uy ",
+    "gifSearch": "https://media3.giphy.com/media/UtwXhmSsjyfrq/200.gif?cid=721f8d78ee4lgj5l1i8jhx6j6nfs7ooy32l36o13fvlib245&rid=200.gif&ct=g",
+    "dateTime": "23/03/2022, 09:30:31",
+    "comments": "",
+    "emojiCount": [
+      2,
+      2,
+      1
+    ]
+  },
+  {
+    "storyTitle": "breakfast post",
+    "storyEntry": "sami have you had your porridge?",
+    "gifSearch": "https://media3.giphy.com/media/xT1R9JKm2XcWXAIhvW/200.gif?cid=721f8d787b9y9ln6w5c0a37f9wl5vx1dih8ykl8my3gej7d4&rid=200.gif&ct=g",
+    "dateTime": "23/03/2022, 09:41:15",
+    "comments": "",
+    "emojiCount": [
+      1,
+      0,
+      1
     ]
   }
 ]
