@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "storyTitle": "sami's story",
+    "storyEntry": "sami is a hard working man.",
+    "gifSearch": "https://media1.giphy.com/media/JmD9mkDmzvXE7nxy7j/200.gif?cid=721f8d782qfql7qzc1ow1ge7fp6sq2arn4s1kqsxfam65uk1&rid=200.gif&ct=g",
+    "id": 0,
+    "dateTime": "23/03/2022, 19:44:36",
+    "comments": [
+      "sami wyss",
+      "hello"
+    ],
+    "emojiCount": [
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "storyTitle": "jax the russclart jokeman",
+    "storyEntry": "eh wha de bumba",
+    "gifSearch": "https://media1.giphy.com/media/RIeub4MLLY1PCe8Vlz/200.gif?cid=721f8d78vjehdwg0fp0922tmmarryxvilikxqzuj2vk7r42i&rid=200.gif&ct=g",
+    "id": 1,
+    "dateTime": "23/03/2022, 19:46:04",
+    "comments": [
+      "bumbaclarttt",
+      "pleasee"
+    ],
+    "emojiCount": [
+      0,
+      1,
+      0
+    ]
+  }
+]

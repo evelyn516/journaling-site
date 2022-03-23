@@ -104,28 +104,30 @@ function createStory(resp) {
         count++
         // console.log(item)
         const li = document.createElement('li')
+        console.log(item.comments);
         li.innerHTML = `
         <div class="apost">
-        <h4 class="postTitle">${item.storyTitle}</h4>
+            <h4 class="postTitle">${item.storyTitle}</h4>
         <div class="container">
             <p class="my-1 dateTime">${item.dateTime}</p>
         </div>
         <img class="gifInsert" src=${item.gifSearch} alt="a rubber duck" alt="gify">
         <p class="theStory">${item.storyEntry}</p>
-    </div>
-    <div class="container">
+        </div>
+        <div class="container">
         <div class="row">
-            <div class="col text-center">
-                <button class="btn btn-success" style="width:100%" onclick="emojiIncrease('${item.id}', 'like')">&#128077; ${item.emojiCount[0]}</button>
-            </div>
-            <div class="col text-center">
-            <button class="btn btn-danger" style="width:100%" onclick="emojiIncrease('${item.id}', 'dislike')">&#128078; ${item.emojiCount[1]}</button>
-            </div>
-            <div class="col text-center">
-            <button class="btn btn-primary" style="width:100%" onclick="emojiIncrease('${item.id}', 'love')">&#10084; ${item.emojiCount[2]}</button>
-            </div>
+        <div class="col text-center">
+        <button class="btn btn-success" style="width:100%" onclick="emojiIncrease('${item.id}', 'like')">&#128077; ${item.emojiCount[0]}</button>
+        </div>
+        <div class="col text-center">
+        <button class="btn btn-danger" style="width:100%" onclick="emojiIncrease('${item.id}', 'dislike')">&#128078; ${item.emojiCount[1]}</button>
+        </div>
+        <div class="col text-center">
+        <button class="btn btn-primary" style="width:100%" onclick="emojiIncrease('${item.id}', 'love')">&#10084; ${item.emojiCount[2]}</button>
+        </div>
         </div>
         <button class="btn btn-warning my-2" data-toggle="modal" data-target="#myModal">Show Comments!</button>
+        <p>${item.comments}</p>
 
         <div class="modal fade" id="myModal">
             <div class="modal-dialog">
@@ -137,7 +139,7 @@ function createStory(resp) {
                         </button>
                     </div>
                 <div class="modal-body">
-                    <p>Comments go here!</p>
+                    <p>${item.comments}</p>
                 </div>
                 <form id="commentForm" class="comment my-2">
                     <label for = "comments">
@@ -157,6 +159,19 @@ list.prepend(li)
 }
 
 
+
+// function loopThrough(array, id) {
+//     setTimeout(() => {
+//         const commentDiv = getElementById(`comment${id}`)
+//         for(let i=0; i<array.length; i++) {
+//             newP = document.createElement('p');
+//             newP.textContent = array[i];
+//             commentDiv.appendChild(newP);
+        
+//         }
+//     }, 1000)
+// };
+
 function emojiIncrease(id,emoji){
     console.log(id)
     fetch('http://localhost:3000/emojiUpdate', {
@@ -172,46 +187,9 @@ function emojiIncrease(id,emoji){
 function sendComment(id) {
     const textboxValue = document.getElementById(`${id}`).value
     console.log(textboxValue);
-    // const textBoxValue= id.value
     fetch('http://localhost:3000/comments', {
       method: 'PUT',
       body: JSON.stringify({ comment: textboxValue, id: id}),
       headers: { 'Content-Type': 'application/json' },
     })
 }
-
-
-
-
-
-
-
-// const commentForm = document.querySelector('#commentForm');
-// commentForm.addEventListener('submit', postComment);
-
-// async function postComment(e) {
-//     e.preventDefault();
-//     const curr = new Date().toLocaleString();
-//     const commentData = new FormData(commentForm);
-//     const commentFormDataSerialised = Object.fromEntries(commentData)
-
-//     fetch('http://localhost:3000/commentUpdate', {
-//         method: 'PUT',
-//         body: JSON.stringify({ title: storytitle, comment: comment}),
-//         headers: { 'Content-Type': 'application/json'},
-//     })
-
-//     location.reload();
-// }
-
-
-// Comments Modal
-// function addComment(storytitle, comment) {
-//     let commentPost = document.querySelector('.comment-form-search').value
-//     fetch('http://localhost:3000/commentUpdate', {
-//         method: 'PUT',
-//         body: JSON.stringify({ title: storytitle, comment: commentPost }),
-//         headers: { 'Content-Type': 'application/json'},
-//     })
-//     location.reload();
-// }

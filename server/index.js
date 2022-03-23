@@ -55,12 +55,6 @@ app.put('/emojiUpdate', (req, res)=>{
     updateJson();
  })
 
-// comment update
-//  app.put('/commentUpdate', (req, res) => {
-//      const title = req.body.title;
-//      const matchingPost = storyData.find(post => post.storyTitle === title)
-//      matchingPost.comments.push(comment)
-//  })
 
  app.put('/comments', (req, res)=>{
      console.log(req.body)
