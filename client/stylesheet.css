@@ -132,7 +132,7 @@ body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
     /* padding-left: 10px; */
     text-decoration: underline;
 }
-.timestamp{
+.dateTime{
     grid-area: date;
     color:blue;
     text-align: left;
@@ -167,9 +167,15 @@ body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
 
 .comment{
     grid-area: comment;
-    padding-left: 10px;
+    padding: 20px;
     /* want this to be wider but not pushed down */
 }
+
+.commentEnterHere{
+    margin-left: 80px;
+    margin-bottom: 40px; /* enter linebreak here */
+}
+
 .entertitle{
     grid-area: titleEntry;
 }

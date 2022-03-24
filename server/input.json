@@ -50,7 +50,7 @@
     ],
     "emojiCount": [
       0,
-      0,
+      1,
       0
     ]
   },
@@ -67,7 +67,36 @@
     ],
     "emojiCount": [
       1,
-      2,
+      3,
+      1
+    ]
+  },
+  {
+    "storyTitle": "My Random Friend",
+    "storyEntry": "So My Random friend had a random baby wHo she called 'qksdjqb'.  If you believe it the priest even refused to baptise 'qksdjqb' because there are no saints called 'qksdjqb'.",
+    "gifSearch": "https://media1.giphy.com/media/Vbaxw6hDXm2mCPngil/200.gif?cid=721f8d78j7si52ephqn5mxpgvmoczkasxvlv4u6rf9q29w3h&rid=200.gif&ct=g",
+    "id": 4,
+    "dateTime": "3/24/2022, 6:57:09 PM",
+    "comments": [],
+    "emojiCount": [
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "storyTitle": "Hello hgckykgghgvghytytf",
+    "storyEntry": "iugouvoytgfçuytg çuy uyg çuyguyg uyg uyg uyg uy guyguy guy yo",
+    "gifSearch": "https://media3.giphy.com/media/OAjlP22ecZn8s/200.gif?cid=721f8d78bs66x1u4dr8jlhs9m79znpih7jen2k2hetm0pv1i&rid=200.gif&ct=g",
+    "id": 5,
+    "dateTime": "3/24/2022, 6:58:49 PM",
+    "comments": [
+      "you are silly",
+      "this is my job now"
+    ],
+    "emojiCount": [
+      1,
+      1,
       1
     ]
   }

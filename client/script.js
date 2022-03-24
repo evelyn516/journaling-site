@@ -121,7 +121,7 @@ function createStory(resp) {
         <div class="col text-center">
         <button class="btn btn-success" style="width:100%" onclick="emojiIncrease('${item.id}', 'like')">&#128077; ${item.emojiCount[0]}</button>
         </div>
-        <div class="col text-center">z""r
+        <div class="col text-center">
         <button class="btn btn-danger" style="width:100%" onclick="emojiIncrease('${item.id}', 'dislike')">&#128078; ${item.emojiCount[1]}</button>
         </div>
         <div class="col text-center">
@@ -151,6 +151,7 @@ function createStory(resp) {
     
     
     comment = document.createElement('div');
+    comment.setAttribute('class', 'comment');
     for(let i=0; i<item.comments.length; i++) {
         newP = document.createElement('p');
         newP.textContent = item.comments[i];
@@ -179,7 +180,7 @@ function sendComment(idx) {
 
 
 
-function emojiIncrease(id,emoji){
+function emojiIncrease(id, emoji){
     console.log(id)
     fetch('http://localhost:3000/emojiUpdate', {
       method: 'PUT',
