@@ -1,4 +1,6 @@
 # My Random Story
+![image](https://user-images.githubusercontent.com/59448947/159898362-65c3f067-9007-4773-8fe6-9ec65d9a708a.png)
+
 
 ## LAP 1 Project: Community Journaling Website
 
