@@ -38,7 +38,7 @@ Useful code that we can keep for future projects
 
 Code example 1
 
-const url = "http://localhost:3000/entries"
+`const url = "http://localhost:3000/entries"
 fetch(url)
   .then(resp => resp.json())
   .then(data => {
@@ -92,11 +92,11 @@ function displayStory(data){
     newdiv.appendChild(newDateTime);
     newdiv.appendChild(newstory);
     newdiv.appendChild(emojibuttons);  
-}
+}`
 
 Code example 2
 
-let list = document.querySelector('#story-show');
+`let list = document.querySelector('#story-show');
 function createStory(resp) {
     
     resp.forEach(item => {
@@ -131,4 +131,4 @@ function createStory(resp) {
     </div>`
 list.prepend(li)
     })
-}
+}`
