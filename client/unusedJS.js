@@ -100,3 +100,87 @@ function saveNewPost(e) {
     //for display purposes only
     console.warn('added a new post');
 }
+
+
+
+
+
+<{/* div class="modal fade" id="myModal" id=${idTitle}>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Comment Section:</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                <div class="modal-body">
+                    <p>${item.comments}</p>
+                </div> */}
+                <form id="commentForm" class="comment my-2">
+
+                    <input id="${item.id}" type="text" class="comment-form-search" placeholder="Add your comment here">
+                    <input onclick="sendComment(${item.id})" type="button" value="Add comment" class="btn btn-primary mx-1">
+                </form>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" data-dismiss="modal">Hide Comments!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <button class="btn btn-warning my-2" data-toggle="modal" data-target="#myModal">Show Comments!</button>
+        <p>${item.comments}</p>
+
+
+
+
+
+
+        const formEl = document.querySelector('form');
+        formEl.addEventListener('submit', postStoryData)
+        
+        async function postStoryData(e) {
+          e.preventDefault();
+          const current = new Date().toLocaleString();
+          
+          
+          let gifUrl = currentGifUrl
+        
+            
+            const formData = new FormData(formEl)
+            const formDataSerialised = Object.fromEntries(formData)
+            const jsonObject = {...formDataSerialised, id: count, dateTime: current, comments: [], gifSearch: gifUrl, emojiCount: [0,0,0]}
+            console.log(jsonObject)
+            try{
+                const response = await fetch ("http://localhost:3000/entries", {
+                method: 'POST', 
+                body: JSON.stringify(jsonObject),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+                })
+                const json = await response.json();
+                console.log(json)
+            }catch(e){
+                console.error(e);
+                alert('There was an error')
+            }
+        }
+
+
+
+
+
+        function sendComment(id) {
+            const textboxValue = document.getElementById(`${id}`).value
+            console.log(textboxValue);
+            fetch('https://my-random-story.herokuapp.com/comments', {
+              method: 'PUT',
+              body: JSON.stringify({ comment: textboxValue, id: id}),
+              headers: { 'Content-Type': 'application/json' },
+            })
+        }

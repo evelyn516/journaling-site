@@ -102,9 +102,11 @@ function createStory(resp) {
     
     resp.forEach(item => {
         count++
+        
         // console.log(item)
-        const li = document.createElement('li')
-        console.log(item.comments);
+        const li = document.createElement('div')
+        idTitle = item.storyTitle.replace(/\s/g, "")
+        console.log(idTitle);
         li.innerHTML = `
         <div class="apost">
             <h4 class="postTitle">${item.storyTitle}</h4>
@@ -119,58 +121,63 @@ function createStory(resp) {
         <div class="col text-center">
         <button class="btn btn-success" style="width:100%" onclick="emojiIncrease('${item.id}', 'like')">&#128077; ${item.emojiCount[0]}</button>
         </div>
-        <div class="col text-center">
+        <div class="col text-center">z""r
         <button class="btn btn-danger" style="width:100%" onclick="emojiIncrease('${item.id}', 'dislike')">&#128078; ${item.emojiCount[1]}</button>
         </div>
         <div class="col text-center">
         <button class="btn btn-primary" style="width:100%" onclick="emojiIncrease('${item.id}', 'love')">&#10084; ${item.emojiCount[2]}</button>
         </div>
         </div>
-        <button class="btn btn-warning my-2" data-toggle="modal" data-target="#myModal">Show Comments!</button>
-        <p>${item.comments}</p>
 
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Comment Section:</h5>
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span>&times;</span>
-                        </button>
-                    </div>
-                <div class="modal-body">
-                    <p>${item.comments}</p>
-                </div>
-                <form id="commentForm" class="comment my-2">
-                    <label for = "comments">
-                    </label>
-                    <input id="${item.id}" type="text" class="comment-form-search" placeholder="Add your comment here">
-                    <input onclick="sendComment(${item.id})" type="button" value="Add comment" class="btn btn-primary mx-1">
-                </form>
-                    <div class="modal-footer">
-                        <button class="btn btn-danger" data-dismiss="modal">Hide Comments!</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>`
+    
+    
+    const submitComment = document.createElement('form')
+    submitComment.setAttribute('class', 'commentEnterHere')
+
+    const commentText = document.createElement('input')
+    commentText.id = item.id
+    commentText.type = 'text'
+    commentText.placeholder = 'Add your comment here'
+    const commentSubmit = document.createElement('input')
+    commentSubmit.type = 'submit'
+    commentSubmit.value = 'Submit'
+    commentSubmit.addEventListener('click', function() { 
+        sendComment(item.id);
+    });
+    
+    submitComment.appendChild(commentText);
+    submitComment.appendChild(commentSubmit);
+    
+    
+    comment = document.createElement('div');
+    for(let i=0; i<item.comments.length; i++) {
+        newP = document.createElement('p');
+        newP.textContent = item.comments[i];
+        comment.appendChild(newP);
+    }
+    li.appendChild(comment)
+    li.appendChild(submitComment)
+
 list.prepend(li)
     })
 }
 
 
+function sendComment(idx) {
+    const commentEntry = document.getElementById(idx);
+    console.log(commentEntry.value);
+    const comment = commentEntry.value
+    fetch('http://localhost:3000/comments', {
+        method: 'PUT',
+        body: JSON.stringify({ comment: comment, id: idx}),
+        headers: { 'Content-Type': 'application/json' },
+      })
+}
 
-// function loopThrough(array, id) {
-//     setTimeout(() => {
-//         const commentDiv = getElementById(`comment${id}`)
-//         for(let i=0; i<array.length; i++) {
-//             newP = document.createElement('p');
-//             newP.textContent = array[i];
-//             commentDiv.appendChild(newP);
-        
-//         }
-//     }, 1000)
-// };
+
+
+
 
 function emojiIncrease(id,emoji){
     console.log(id)
@@ -181,6 +188,11 @@ function emojiIncrease(id,emoji){
     })
     location.reload();
 };
+
+
+
+
+
 
 
 
