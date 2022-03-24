@@ -143,14 +143,15 @@ body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
 }
 .gifInsert{
     grid-area: gif;
-    width: 14vh;
+    width: 35vh;
+    height: auto;
     margin: 10px;
+    border-radius: 5px;
 
 
 /*  flex inline? seems to be pushing comments down */
 /* needs to be stuck on the right - position fixed? */
 }
-
 
 /* code below doesnt work */
 .card-img-top {
