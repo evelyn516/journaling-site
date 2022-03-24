@@ -38,4 +38,97 @@ Useful code that we can keep for future projects
 
 Code example 1
 
+const url = "http://localhost:3000/entries"
+fetch(url)
+  .then(resp => resp.json())
+  .then(data => {
+      for (let i=0; i < data.length; i++) displayStory(data[i]);
+  })
+  .then(console.log("done"))
+  .catch(err => console.warn('Woops-a-daisy!', err)); 
+
+function displayStory(data){
+        
+    const dateTime = data.timestamp
+    const title = data.title
+    const story = data.story
+    console.log('okey dokey')
+    
+    const newtitle = document.createElement('h4');
+    newtitle.className = "postTitle";
+    newtitle.textContent = title;
+    
+    const newstory = document.createElement('p');
+    newstory.className = "theStory";
+    newstory.textContent = story;
+    
+    const newDateTime = document.createElement('p');
+    newDateTime.className = "timestamp";
+    newDateTime.textContent = dateTime;
+
+    const emojibuttons = document.createElement('div')
+    
+    const like = document.createElement('button')
+    like.className = 'like';
+    like.innerHTML = `&#128077 ${data.likes}`
+    emojibuttons.appendChild(like);
+    
+    const hate = document.createElement('button')
+    hate.className = 'hate';
+    hate.innerHTML = `&#10084 ${data.hates}`
+    emojibuttons.appendChild(hate);
+
+    const love = document.createElement('button')
+    love.className = "love";
+    love.innerHTML = `&#10084 ${data.loves}`
+    emojibuttons.appendChild(love);
+    
+
+    const newdiv = document.createElement('div')
+    const main = document.querySelector('main')
+    newdiv.className = "apost";
+    main.prepend(newdiv);
+    newdiv.appendChild(newtitle);
+    newdiv.appendChild(newDateTime);
+    newdiv.appendChild(newstory);
+    newdiv.appendChild(emojibuttons);  
+}
+
 Code example 2
+
+let list = document.querySelector('#story-show');
+function createStory(resp) {
+    
+    resp.forEach(item => {
+        // console.log(item)
+        let thisid = (item.storyTitle).replace(/\s/g, '');
+        const li = document.createElement('li')
+        li.innerHTML = `
+        <div class="apost">
+        <h4 class="postTitle">${item.storyTitle}</h4>
+        <div class="container">
+            <p class="my-1 dateTime">${item.dateTime}</p>
+        </div>
+        <img class="gifInsert" src=${item.gifSearch} alt="a rubber duck" alt="gify">
+        <p class="theStory">${item.storyEntry}</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <button class="btn btn-success" style="width:100%" onclick="emojiIncrease('${item.storyTitle}', 'like')">&#128077; ${item.emojiCount[0]}</button>
+            </div>
+            <div class="col text-center">
+            <button class="btn btn-danger" style="width:100%" onclick="emojiIncrease('${item.storyTitle}', 'dislike')">&#128078; ${item.emojiCount[1]}</button>
+            </div>
+            <div class="col text-center">
+            <button class="btn btn-primary" style="width:100%" onclick="emojiIncrease('${item.storyTitle}', 'love')">&#10084; ${item.emojiCount[2]}</button>
+            </div>
+        </div>
+        <form onsubmit="pushComment()">
+            <input id=${thisid} type='text' class="commentForm" placeholder="Enter your comment here">
+            <input class=${thisid} type="button" value="submit">
+        </form >     
+    </div>`
+list.prepend(li)
+    })
+}
