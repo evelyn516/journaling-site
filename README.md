@@ -25,9 +25,15 @@ We took inspiration from www.fmylife.com. To differentiate ours to avoid copyrig
 - Open `index.html` with your browser to use the website.
 
 ### Wins and Challenges
-challenges of different code writing styles.
-challenges of working with Git and merge conflicts.
+- Challenges of different code writing styles.
+- Challenges of working with Git and merge conflicts.
+- Challenges with displaying comments using innerHTML and trying to embed a function.
 
-Wins of finally understanding certain functionality, e.g. uploading API data to JSON files.
-Useful code that we can keep for future projects.
+- Wins of finally understanding certain functionality, e.g. uploading API data to JSON files.
+- Useful code that we can keep for future projects.
+
+### Future Features
+- Comments displayed with date.time stamp
+- Login username/password for users
+
 
