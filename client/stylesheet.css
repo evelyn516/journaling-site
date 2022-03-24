@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hubballi&family=Inspiration&display=swap');
+/* font-family: 'Bebas Neue', cursive;
+font-family: 'Hubballi', cursive;
+font-family: 'Inspiration', cursive; */
+* {
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Bebas Neue', cursive;
+    background-color: beige;
+    margin: 0;
+    padding: 0;
+}
+
+
+h2{
+    color: pink;
+}
+
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: yellow;
+    color: purple;
+}
+
+#brand-title {
+    font-size: 2rem;
+    margin: 0.5rem;
+}
+
+#navbar-links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+#navbar-links li {
+    list-style: none;
+}
+
+#navbar-links li a {
+    text-decoration: none;
+    color: purple;
+    padding: 1rem;
+    display: block;
+    /* may need to remove this below: */
+    font-size: 1.2rem;
+}
+
+#navbar-links li:hover {
+    background-color: pink;
+}
+#toggle-button {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+#toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: purple;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 560px) {
+    #toggle-button {
+        display: flex;
+    }
+
+    #navbar-links {
+        display: none;
+        width: 100%;
+    }
+
+    #navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #navbar-links ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #navbar-links li {
+        text-align: center;
+    }
+
+    #navbar-links li a {
+        padding: 0.5rem 1rem;
+    }
+
+    #navbar-links.active {
+        display: flex;
+    }
+}
+
+header{
+    background-color: purple;
+    color: yellow;
+    padding: 20px;
+    font-size: 200%;
+    text-align: center;
+/*     border: 20pt;
+    border-color: pink; */
+}
+
+.rubberduckieheader{
+    width: 10%;
+    float: right;
+    
+}
+/* submit btn color */
+body > section > div > form > div:nth-child(4) > button.btn.btn-primary.mx-1 {
+    background-color: palevioletred;
+}
+
+.post{
+}
+
+.postTitle{
+    grid-area: title;
+    /* padding-left: 10px; */
+    text-decoration: underline;
+}
+.timestamp{
+    grid-area: date;
+    color:blue;
+    text-align: left;
+}
+.theStory{
+    grid-area: story;
+    padding-top: 10px;
+}
+.gifInsert{
+    grid-area: gif;
+    width: 35vh;
+    height: auto;
+    margin: 10px;
+    border-radius: 5px;
+
+
+/*  flex inline? seems to be pushing comments down */
+/* needs to be stuck on the right - position fixed? */
+}
+
+/* code below doesnt work */
+.card-img-top {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.dateTime {
+    grid-area: date;
+}
+
+.comment{
+    grid-area: comment;
+    padding-left: 10px;
+    /* want this to be wider but not pushed down */
+}
+.entertitle{
+    grid-area: titleEntry;
+}
+.s-button{
+    grid-area: submitbutton;
+}
+.gifUrl{
+    grid-area: gifEntry;
+    /* needs to be entered in HTML */
+}
+/* .enterStory{
+    grid-area: storyEntry;
+    margin-top: 10px;
+    width: 80vw;
+}
+#addStory{
+    grid-area: addStory;
+}
+#title{
+    width: 40vw;
+} */
+/* .newEntry{
+    display: grid;
+    grid-template-areas: 
+        "addStory addStory addStory"
+        "date date date"
+        "titleEntry titleEntry gifEntry"
+        "storyEntry storyEntry submitbutton";
+    margin: 10px;
+    padding: 10px;
+} */
+
+.apost{
+    display: grid;
+    grid-template-areas: 
+        "title title title"
+        "date date date"
+        "story story story"
+        "gif gif gif"
+        "comment comment comment";
+    margin: 10px;
+    padding: 10px;
+}
+
+
+footer{
+    background-color: grey;
+    text-align: center;
+}
+
+
+/* Giphy Style */
+.outer-form > .gifSearchForm > .gif-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 90%;
+	margin: 10px auto;
+	max-width: 600px;
+}
+
+#outer-form > .gifSearchForm > .gif-list > img {
+	width: auto;
+	height: 125px;
+	margin: 5px;
+}

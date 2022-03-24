@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll",
+    "dev": "nodemon index.js",
+    "build": "concurrently \"watchify ../client/script.js -o bundle.js\" \"python -m http.server\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "jest": "^27.5.1",
+    "supertest": "^6.2.2",
+    "watchify": "^4.0.0"
+  }
+}

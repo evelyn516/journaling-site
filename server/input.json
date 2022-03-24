@@ -1,0 +1,35 @@
+[
+  {
+    "storyTitle": "sami's story",
+    "storyEntry": "sami is a hard working man.",
+    "gifSearch": "https://media1.giphy.com/media/JmD9mkDmzvXE7nxy7j/200.gif?cid=721f8d782qfql7qzc1ow1ge7fp6sq2arn4s1kqsxfam65uk1&rid=200.gif&ct=g",
+    "id": 0,
+    "dateTime": "23/03/2022, 19:44:36",
+    "comments": [
+      "sami wyss",
+      "hello"
+    ],
+    "emojiCount": [
+      1,
+      1,
+      2
+    ]
+  },
+  {
+    "storyTitle": "lunch",
+    "storyEntry": "lunchitme dewbch iuwegdu ",
+    "gifSearch": "https://media2.giphy.com/media/l0MYNt3sAuhOIgFtm/200.gif?cid=721f8d7850yambh4h30afdq1jpx8gkawrf63hzl4kgbagtsa&rid=200.gif&ct=g",
+    "id": 2,
+    "dateTime": "24/03/2022, 14:32:47",
+    "comments": [
+      "evie",
+      "opls",
+      "lunch"
+    ],
+    "emojiCount": [
+      0,
+      0,
+      0
+    ]
+  }
+]
