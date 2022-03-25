@@ -110,26 +110,26 @@ function createStory(resp) {
         li.innerHTML = `
         <div class="apost">
             <h4 class="postTitle">${item.storyTitle}</h4>
-        <div class="container">
-            <p class="my-1 dateTime">${item.dateTime}</p>
-        </div>
-        <img class="gifInsert" src=${item.gifSearch} alt="a rubber duck" alt="gify">
-        <p class="theStory">${item.storyEntry}</p>
-        </div>
-        <div class="container">
-        <div class="row">
-        <div class="col text-center">
-        <button class="btn btn-success" style="width:100%" onclick="emojiIncrease('${item.id}', 'like')">&#128077; ${item.emojiCount[0]}</button>
-        </div>
-        <div class="col text-center">
-        <button class="btn btn-danger" style="width:100%" onclick="emojiIncrease('${item.id}', 'dislike')">&#128078; ${item.emojiCount[1]}</button>
-        </div>
-        <div class="col text-center">
-        <button class="btn btn-primary" style="width:100%" onclick="emojiIncrease('${item.id}', 'love')">&#10084; ${item.emojiCount[2]}</button>
-        </div>
-        </div>
-
-    </div>`
+            <div class="container">
+                <p class="my-1 dateTime">${item.dateTime}</p>
+            </div>
+                <img class="gifInsert" src=${item.gifSearch} alt="a rubber duck" alt="gify">
+                <p class="theStory">${item.storyEntry}</p>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                         <button class="btn btn-success" style="width:100%" onclick="emojiIncrease('${item.id}', 'like')">&#128077; ${item.emojiCount[0]}</button>
+                    </div>
+                    <div class="col text-center">
+                        <button class="btn btn-danger" style="width:100%" onclick="emojiIncrease('${item.id}', 'dislike')">&#128078; ${item.emojiCount[1]}</button>
+                    </div>
+                    <div class="col text-center">
+                        <button class="btn btn-primary" style="width:100%" onclick="emojiIncrease('${item.id}', 'love')">&#10084; ${item.emojiCount[2]}</button>
+                    </div>
+                </div>
+            </div>
+        </div>`
     
     
     const submitComment = document.createElement('form')
@@ -151,7 +151,12 @@ function createStory(resp) {
     
     
     comment = document.createElement('div');
-    comment.setAttribute('class', 'comment');
+    commentTitle = document.createElement('h5');
+    commentTitle.setAttribute('class', 'my-2');
+    commentTitle.setAttribute('text-decoration', 'underline');
+    commentTitle.textContent = 'COMMENTS:';
+    comment.appendChild(commentTitle);
+    comment.setAttribute('class', 'mx-2 ');
     for(let i=0; i<item.comments.length; i++) {
         newP = document.createElement('p');
         newP.textContent = item.comments[i];
@@ -163,6 +168,7 @@ function createStory(resp) {
 list.prepend(li)
     })
 }
+
 
 
 function sendComment(idx) {
@@ -191,18 +197,3 @@ function emojiIncrease(id, emoji){
 };
 
 
-
-
-
-
-
-
-function sendComment(id) {
-    const textboxValue = document.getElementById(`${id}`).value
-    console.log(textboxValue);
-    fetch('http://localhost:3000/comments', {
-      method: 'PUT',
-      body: JSON.stringify({ comment: textboxValue, id: id}),
-      headers: { 'Content-Type': 'application/json' },
-    })
-}
